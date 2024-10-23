@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shield - Health & Wellness App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Shield - Health & Wellness Tracker</h1>
+    </header>
+
+    <!-- Profile Section -->
+    <section id="profile-section">
+        <h2>Create or Select Profile</h2>
+        <form id="profile-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            
+            <label for="role">Role:</label>
+            <select id="role">
+                <option value="family">Family</option>
+                <option value="friend">Friend</option>
+                <option value="patient">Patient</option>
+            </select>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="Enter your age" required>
+
+            <button type="button" id="create-profile">Create Profile</button>
+        </form>
+
+        <h3>Existing Profiles</h3>
+        <ul id="profile-list"></ul>
+    </section>
+
+    <!-- Health Records Section -->
+    <section id="health-section">
+        <h2>Health Records Management</h2>
+        <form id="health-record-form">
+            <label for="condition">Condition:</label>
+            <input type="text" id="condition" placeholder="Condition" required>
+
+            <label for="medication">Medication:</label>
+            <input type="text" id="medication" placeholder="Medication">
+
+            <label for="allergy">Allergy:</label>
+            <input type="text" id="allergy" placeholder="Allergy">
+
+            <button type="button" id="add-health-record">Add Health Record</button>
+        </form>
+        <h3>Health Records</h3>
+        <ul id="health-records-list"></ul>
+    </section>
+
+    <!-- Mental Health Tracking Section -->
+    <section id="mental-health-section">
+        <h2>Mental Health Tracking</h2>
+        <form id="mental-health-form">
+            <label for="mood">Mood:</label>
+            <input type="text" id="mood" placeholder="Mood" required>
+
+            <label for="substance-use">Substance Use:</label>
+            <input type="text" id="substance-use" placeholder="Substance Used">
+
+            <button type="button" id="track-mental-health">Log Mental Health</button>
+        </form>
+        <h3>Mental Health Logs</h3>
+        <ul id="mental-health-logs"></ul>
+    </section>
+
+    <!-- Growth Tracking Section -->
+    <section id="growth-section">
+        <h2>Growth Spurt Tracking</h2>
+        <form id="growth-form">
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" required>
+
+            <button type="button" id="add-growth">Add Growth Record</button>
+        </form>
+        <h3>Growth Records</h3>
+        <ul id="growth-list"></ul>
+        <canvas id="growth-graph" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Medication Tracking Section -->
+    <section id="medication-section">
+        <h2>Medications Management</h2>
+        <form id="medication-form">
+            <label for="med-category">Medication Category:</label>
+            <select id="med-category">
+                <option value="autism">Autism Meds</option>
+                <option value="adhd">ADHD Meds</option>
+                <option value="heart">Heart Meds</option>
+                <option value="pain">Pain Medications</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="med-name">Medication Name:</label>
+            <input type="text" id="med-name" required>
+
+            <button type="button" id="add-medication">Add Medication</button>
+        </form>
+        <h3>Medications List</h3>
+        <ul id="medications-list"></ul>
+    </section>
+
+    <!-- Nutrition Tracking Section -->
+    <section id="nutrition-tracking">
+        <h2>Nutrition Tracking</h2>
+        <form id="nutrition-form">
+            <label for="food-item">Food Item:</label>
+            <input type="text" id="food-item" required>
+
+            <label for="calories">Calories:</label>
+            <input type="number" id="calories" required>
+
+            <button type="button" id="add-nutrition">Add Nutrition</button>
+        </form>
+        <h3>Nutrition Logs</h3>
+        <ul id="nutrition-list"></ul>
+    </section>
+
+    <!-- Sleep Tracking Section -->
+    <section id="sleep-tracking">
+        <h2>Sleep Tracker</h2>
+        <form id="sleep-form">
+            <label for="sleep-hours">Hours Slept:</label>
+            <input type="number" id="sleep-hours" required>
+
+            <label for="sleep-quality">Quality (1-5):</label>
+            <input type="number" id="sleep-quality" min="1" max="5" required>
+
+            <button type="button" id="add-sleep">Log Sleep</button>
+        </form>
+        <h3>Sleep Logs</h3>
+        <ul id="sleep-list"></ul>
+    </section>
+
+    <!-- Exercise Log Section -->
+    <section id="exercise-log">
+        <h2>Exercise Log</h2>
+        <form id="exercise-form">
+            <label for="exercise-name">Exercise Name:</label>
+            <input type="text" id="exercise-name" required>
+
+            <label for="exercise-duration">Duration (minutes):</label>
+            <input type="number" id="exercise-duration" required>
+
+            <button type="button" id="add-exercise">Log Exercise</button>
+        </form>
+        <h3>Exercise Logs</h3>
+        <ul id="exercise-list"></ul>
+    </section>
+
+    <!-- Daily Affirmations Section -->
+    <section id="daily-affirmations">
+        <h2>Daily Affirmations</h2>
+        <p id="affirmation-text"></p>
+        <button type="button" id="get-affirmation">Get a Daily Affirmation</button>
+    </section>
+
+    <!-- Stress Management Section -->
+    <section id="stress-management">
+        <h2>Stress Management Techniques</h2>
+        <ul>
+            <li>Deep Breathing Exercises</li>
+            <li>Mindfulness Meditation</li>
+            <li>Progressive Muscle Relaxation</li>
+            <li>Yoga and Stretching</li>
+            <li>Time Management Strategies</li>
+        </ul>
+    </section>
+
+    <!-- Community Support Forum Section -->
+    <section id="community-support">
+        <h2>Community Support Forum</h2>
+        <form id="support-form">
+            <label for="forum-post">Share your thoughts:</label>
+            <textarea id="forum-post" placeholder="Post your message here..."></textarea>
+            <button type="button" id="add-forum-post">Post</button>
+        </form>
+        <h3>Forum Posts</h3>
+        <ul id="forum-posts-list"></ul>
+    </section>
+
+    <!-- Emergency Contacts Section -->
+    <section id="emergency-contacts">
+        <h2>Emergency Contacts</h2>
+        <form id="emergency-contact-form">
+            <label for="contact-name">Contact Name:</label>
+            <input type="text" id="contact-name" required>
+
+            <label for="contact-phone">Contact Phone:</label>
+            <input type="text" id="contact-phone" required>
+
+            <button type="button" id="add-emergency-contact">Add Emergency Contact</button>
+        </form>
+        <h3>Emergency Contacts</h3>
+        <ul id="emergency-contacts-list"></ul>
+    </section>
+
+    <!-- Immunization Records Section -->
+    <section id="immunization-records">
+        <h2>Immunization Records</h2>
+        <form id="immunization-form">
+            <label for="vaccine-name">Vaccine Name:</label>
+            <input type="text" id="vaccine-name" required>
+
+            <label for="vaccination-date">Vaccination Date:</label>
+            <input type="date" id="vaccination-date" required>
+
+            <button type="button" id="add-vaccine">Add Vaccine</button>
+        </form>
+        <h3>Immunization Records</h3>
+        <ul id="immunization-list"></ul>
+    </section>
+
+    <!-- Health Tips and Resources Section -->
+    <section id="health-tips">
+        <h2>Health Tips and Resources</h2>
+        <ul>
+            <li>Drink plenty of water.</li>
+            <li>Maintain a balanced diet.</li>
+            <li>Exercise regularly.</li>
+            <li>Get adequate sleep.</li>
+            <li>Schedule regular check-ups.</li>
+        </ul>
+    </section>
+
+    <!-- Health Risk Assessment Section -->
+    <section id="health-risk-assessment">
+        <h2>Health Risk Assessment</h2>
+        <form id="risk-assessment-form">
+            <label for="risk-factor">Select a Risk Factor:</label>
+            <select id="risk-factor">
+                <option value="smoking">Smoking</option>
+                <option value="obesity">Obesity</option>
+                <option value="hypertension">Hypertension</option>
+                <option value="diabetes">Diabetes</option>
+            </select>
+            <button type="button" id="assess-risk">Assess Risk</button>
+        </form>
+        <h3>Risk Assessment Result</h3>
+        <p id="risk-result"></p>
+    </section>
+
+    <!-- Telehealth Integration Section -->
+    <section id="telehealth">
+        <h2>Telehealth Integration</h2>
+        <p>Contact a therapist for virtual consultations.</p>
+        <button type="button" id="contact-therapist">Contact Therapist</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Shield Health App</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
